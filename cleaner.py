@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 
-
 def filter_nondigits(data: list) -> list:
     """
     Takes in a list of new-line separated variables, 
@@ -70,9 +69,11 @@ def plot_adjusted_data(data: list, cleaned_data: list, filename: str) -> None:
 
 
     plt.figure(figsize=(16,6))
+    plt.xlim(0, 450)
+    plt.ylim(0, 120)
     plt.plot(x_vars, y_vars)
 
-    plt.title('HEARTRATE DATA')
+    plt.title('HEART RATE DATA')
     plt.xlabel('Time (minutes)')
     plt.ylabel('BPM')
 

@@ -6,7 +6,7 @@ perform comprehensive analysis
 from metrics import average, maximum, standard_deviation
 from cleaner import filter_nondigits, plot_adjusted_data
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 def run(filename: str) -> None:
@@ -36,6 +36,8 @@ def run(filename: str) -> None:
     ''' N O T E:
     In order to accurately map each data point to every associated 5 minute sampling interval
     We must refer to the original data...
+
+    * Function imported from cleaner.py *
     '''
 
     plot_adjusted_data(data, cleaned_data, filename.strip('.txt').strip('/data/'))
@@ -46,14 +48,15 @@ def run(filename: str) -> None:
     max_hr = maximum(cleaned_data)
     std_dev_hr = standard_deviation(cleaned_data)
 
+    #close the file
+    file.close()
     # return all 3 values
     return avg_hr, max_hr, std_dev_hr
 
-
 if __name__ == "__main__":
-    print(run("data/phase0.txt"))
-    print(run("data/phase1.txt"))
-    print(run("data/phase2.txt"))
-    print(run("data/phase3.txt"))
+    print("Phase0:", run("data/phase0.txt"))
+    print("Phase1:", run("data/phase1.txt"))
+    print("Phase2:", run("data/phase2.txt"))
+    print("Phase3:", run("data/phase3.txt"))
 
 
