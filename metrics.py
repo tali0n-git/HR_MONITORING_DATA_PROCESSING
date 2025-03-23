@@ -33,14 +33,16 @@ def maximum(data: list) -> float:
         OR
         list: empty list if an empty list is input
     """
+
+    if len(data) == 0:
+        return([])
+
     max_num = 0
 
     for i in data:
         if i >= max_num:
             max_num = i
     
-    if max_num == 0:
-        return([])
 
     return max_num
 
@@ -60,15 +62,10 @@ def variance(data: list) -> float:
 
 
     avg = average(data)
-    deviations = []
     sum_deviations = 0
-    final_var = 0
 
     for i in data:
-        deviations.append((i - avg)**2)                 #creating a list of squared deviations
-
-    for i in deviations:
-        sum_deviations += i
+        sum_deviations += (i - avg)**2
 
     final_var = sum_deviations / (len(data))            #calculating population variance
 
